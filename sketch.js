@@ -1,9 +1,11 @@
 let paraDox
 let slider
 let sliderValue
+let funnyDog
 
-function setup() {
+async function setup() {
   createCanvas(windowWidth, windowHeight);
+  funnyDog = await loadImage('funny-dog-memes-hero.jpg')
   // Help blind or low-vision users understand your sketch
   describe("A 400 by 400 pixel gray canvas.");
 
@@ -31,6 +33,10 @@ function draw() {
   push()
   textSize(sliderValue)
   text(sliderValue, width/2, height/2)
+  pop()
+  push()
+  image(funnyDog, width/2, height/3, sliderValue, sliderValue)
+  pop()
 }
 
 function sliderChanged(){
